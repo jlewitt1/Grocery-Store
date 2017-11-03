@@ -1,0 +1,17 @@
+mat-form-field { 
+    width: 400px;
+    font-size: x-large;
+}
+
+img { 
+    height: 350px;
+}
+
+mat-icon { 
+    font-family: 'Materi Icons' !important;
+    font-size: xx-large
+}
+
+button { 
+    border: 2px dashed black;
+}

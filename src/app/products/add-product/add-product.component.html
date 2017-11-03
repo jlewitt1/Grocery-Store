@@ -1,0 +1,43 @@
+<h2>Add Product:</h2>
+
+<form novalidate [formGroup] = "productForm" (ngSubmit) = "addProduct()">
+    <div>
+        <mat-form-field>
+            <input matInput formControlName = "productNameControl" type = "text" placeholder="Product name"/>
+        </mat-form-field>
+        <app-error [controlToValidate]="productForm.controls['productNameControl']"></app-error>    
+    </div>
+    <div>
+        <mat-form-field>
+            <input matInput formControlName = "unitPriceControl" type = "number" placeholder="Unit price"/>
+        </mat-form-field>
+        <app-error [controlToValidate]="productForm.controls['unitPriceControl']"></app-error>
+        
+    </div>
+    <div>
+        <mat-form-field>
+            <input matInput formControlName = "unitsInStockControl" type = "number" placeholder="Units in stock"/>
+        </mat-form-field>
+        <app-error [controlToValidate]="productForm.controls['unitsInStockControl']"></app-error>
+    </div>
+    <div>
+        <mat-form-field>
+            <input matInput formControlName = "unitsOnOrderControl" type = "number" placeholder="Units on order"/>
+        </mat-form-field>
+        <app-error [controlToValidate]="productForm.controls['unitsOnOrderControl']"></app-error>
+        
+    </div>
+    <div>
+    <div>
+        <mat-checkbox>I agree the with the above</mat-checkbox>
+    </div>
+    <button mat-button [disabled]>Add Product</button>
+        <!-- <input type = "submit" value="Add Product" [disabled]= "!productForm.valid"/> -->
+    </div>
+    <div>
+        <!-- <mat-icon>home</mat-icon> -->
+        <!-- <i class = "material-icons">settings_cell</i> -->
+    </div>
+    <br/>
+
+</form>

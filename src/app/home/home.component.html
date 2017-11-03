@@ -1,0 +1,25 @@
+<h2>Josh's Grocery Store</h2>
+
+<button type ="button" (click)="isCollapsed = !isCollapsed" class ="btn btn-outline-primary">Discount</button>
+
+<div [ngbCollapse] ="!isCollapsed">
+    <h3 *ngIf="discount">Only now in {{currentDate | date:'MMMM'}}  - {{discount}}% discount on all products!</h3>
+</div>
+
+<br/> <br/>
+
+<div class ="row">
+    <div class = "col">
+        <ngb-carousel>
+                <ng-template ngbSlide *ngFor = "let c of categories">
+                    <img src="/assets/images/cat{{c.categoryID}}.jpg">
+                    <br/><br/>
+                        <div class="carousel-caption">
+                            <h3>{{c.categoryName}}</h3>
+                        </div>
+                </ng-template>
+        </ngb-carousel>
+    </div>
+</div>
+
+<br/><br/>

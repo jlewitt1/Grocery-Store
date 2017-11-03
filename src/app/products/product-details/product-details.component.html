@@ -1,0 +1,15 @@
+<section *ngIf = "product; else noProduct">   
+    <h2>{{product.productName}}</h2>
+    <h2>Price: {{product.unitPrice | currency: 'ILS':true}}</h2>
+    <h2> <img src ="/assets/images/{{product.productID}}.jpg"/> </h2>
+
+    <ng-template #noProduct>
+        <h2>No such product</h2>
+    </ng-template>
+
+    <br/><br/>
+
+    <a href="javascript:void(0)" (click)="getBack()">Back to List</a>
+    
+    <br/><br/>
+</section>

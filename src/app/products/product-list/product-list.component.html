@@ -1,0 +1,44 @@
+<section>
+    
+    <label>Change Font Size</label>
+    <input type = "range" min="10" max="20" [(ngModel)]="fontSize" />
+    {{fontSize}}
+    <br/><br/>
+    <table *ngIf="products?.length; else noProductsMessage" [style.font-size.px]="fontSize" border="1">
+        <tr>
+            <th>Product #</th>            
+            <th>Product Name</th>
+            <th>Unit Price</th>
+            <th>Units in Stock</th>
+            <th>Units on Order</th>
+            <th>Image</th>
+        </tr>
+        <!-- One-Time Binding [title]="'Cool Product'" -->
+        <!-- One-Way Binding [title]=p.productName -->
+        <!-- Event Binding <th (click)="showPriceAverage()">Unit Price -->
+        <!-- Two-way Binding <input type = "range" min="10" max="30" [(ngModel)]="fontSize" />-->
+        <tr *ngFor="let p of products" [title]="p.productName">  
+            <td>{{ p.productID }}</td>
+            <td>
+                <a routerLink= "/products/{{p.productID}}">
+                {{p.productName}}</a>
+            </td>    
+            <td>{{ p.unitPrice | currency: 'ILS':true:'1.2-2' }}</td>
+            <td>{{ p.unitsInStock | smiley}}</td>
+            <td>{{ p.unitsOnOrder | zeroSymbol: '---' }}</td>
+            <td>
+                <app-product-image 
+                    imageSource = "/assets/images/{{p.productID}}.jpg"
+                    (imageClicked)= "showImage($event)">
+                </app-product-image>
+            </td>
+        </tr>
+    </table> 
+    
+    <ng-template #noProductsMessage>
+        <span>Currently no products available</span>
+    </ng-template>
+
+</section>
+
+<img *ngIf ="clickedImageSource" [src] = "clickedImageSource" class="top-left"/>
